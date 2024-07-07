@@ -1,0 +1,48 @@
+
+syntax = "proto3";
+
+// The core data required for an online bookstore are as follows:
+// o Book:  ISBN, Title, Author, Publisher, Publication Date, Price, Numbr of Pages, Genre
+// o Author: Name, Introduction
+// o Publisher: Name, Address, Contact Information
+// o Customer: ID, Name, Email, Address, Contact Information
+// o Order: Order Number, Customer Information, Ordered Item List, Order Date, Shipping Status
+
+
+message Book {
+    string isbn = 1;
+    string title = 2;
+    string author = 3;
+    string publisher = 4;
+    string published_date = 5;
+    float price = 6;
+    int32 page_count = 7;
+    string genre = 8;
+}
+
+message Author {
+    string name = 1;
+    string bio = 2;
+}
+
+message Publisher {
+    string name = 1;
+    string address = 2;
+    string phone_number = 3;
+}
+
+message Customer {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string address = 4;
+    string phone_number = 5;
+}
+
+message Order {
+    string order_number = 1;
+    Customer customer = 2;
+    repeated Book items = 3;
+    string order_date = 4;
+    string shipping_status = 5;
+}
